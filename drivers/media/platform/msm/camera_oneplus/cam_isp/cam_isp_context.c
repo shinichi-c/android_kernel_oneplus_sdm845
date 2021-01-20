@@ -1,6 +1,13 @@
-// SPDX-License-Identifier: GPL-2.0-only
-/*
- * Copyright (c) 2017-2019, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2018, 2021 The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  */
 
 #include <linux/debugfs.h>
@@ -1041,7 +1048,7 @@ static int __cam_isp_ctx_apply_req_in_activated_state(
 	CAM_DBG(CAM_ISP, "Apply request %lld", req->request_id);
 	req_isp = (struct cam_isp_ctx_req *) req->req_priv;
 
-	if (ctx_isp->active_req_cnt >=  2) {
+	if (ctx_isp->active_req_cnt >= 4) {
 		CAM_ERR_RATE_LIMIT(CAM_ISP,
 			"Reject apply request (id %lld) due to congestion(cnt = %d)",
 			req->request_id,
